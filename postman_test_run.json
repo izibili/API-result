@@ -1,0 +1,227 @@
+{
+	"id": "40d2319e-0928-482b-a1bd-7c3fbf42c917",
+	"name": "Godwin izibili (reqres) testcode camp 4.0",
+	"timestamp": "2020-11-24T23:37:02.575Z",
+	"collection_id": "3f8a6855-d4fc-4052-b625-ac39b9af9d06",
+	"folder_id": 0,
+	"environment_id": "34f73819-cb78-4696-a89c-01bb3bfed4a6",
+	"totalPass": 15,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "679e7de7-1804-47a6-b1a4-057e376ccfe7",
+			"name": "/singleuser",
+			"url": "https://reqres.in/api/users/2",
+			"time": 151,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type is present": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				151
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "09e9dba3-7abf-403a-a982-dccd5470b8b1",
+			"name": "/listusers",
+			"url": "https://reqres.in/api/users?page=2",
+			"time": 152,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Check for Access Control": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Check for Access Control": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				152
+			],
+			"allTests": [
+				{
+					"Check for Access Control": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "f5038bad-6649-4915-8c44-9ec768a478ef",
+			"name": "/Createuser",
+			"url": "https://reqres.in/api/users",
+			"time": 190,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"check if Error is present": true,
+				"checking if the response time is below 400": true,
+				"Check for Server as part of the headers": true
+			},
+			"testPassFailCounts": {
+				"check if Error is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"checking if the response time is below 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check for Server as part of the headers": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				190
+			],
+			"allTests": [
+				{
+					"check if Error is present": true,
+					"checking if the response time is below 400": true,
+					"Check for Server as part of the headers": true
+				}
+			]
+		},
+		{
+			"id": "f27db17d-7922-4237-b5fa-968d6f1ffb66",
+			"name": "/userlogin",
+			"url": "https://reqres.in/api/login",
+			"time": 185,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Check if Via is part of the headers": true,
+				"check if Error is present": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Check if Via is part of the headers": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check if Error is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				185
+			],
+			"allTests": [
+				{
+					"Check if Via is part of the headers": true,
+					"check if Error is present": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "5cebb19c-3dec-4b71-b3ed-fa3420f4eb0c",
+			"name": "/deleteuser",
+			"url": "https://reqres.in/api/users/2",
+			"time": 186,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Checf if the Status code is 204": true,
+				"Check for Access Control": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Checf if the Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check for Access Control": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				186
+			],
+			"allTests": [
+				{
+					"Checf if the Status code is 204": true,
+					"Check for Access Control": true,
+					"Body matches string": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 864,
+	"collection": {
+		"requests": [
+			{
+				"id": "679e7de7-1804-47a6-b1a4-057e376ccfe7",
+				"method": "GET"
+			},
+			{
+				"id": "09e9dba3-7abf-403a-a982-dccd5470b8b1",
+				"method": "GET"
+			},
+			{
+				"id": "f5038bad-6649-4915-8c44-9ec768a478ef",
+				"method": "POST"
+			},
+			{
+				"id": "f27db17d-7922-4237-b5fa-968d6f1ffb66",
+				"method": "POST"
+			},
+			{
+				"id": "5cebb19c-3dec-4b71-b3ed-fa3420f4eb0c",
+				"method": "DELETE"
+			}
+		]
+	}
+}
