@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "3f8a6855-d4fc-4052-b625-ac39b9af9d06",
+		"name": "Godwin izibili (reqres) testcode camp 4.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"item": [
+				{
+					"name": "/singleuser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "34a6bf5b-1ae9-4c20-a3de-f79e82a22408",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header('Expect-CT');\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"last_name\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{reqresurl}}/api/users/2",
+							"host": [
+								"{{reqresurl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						},
+						"description": "https://reqres.in/api/users/2"
+					},
+					"response": []
+				},
+				{
+					"name": "/listusers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "732853b4-9e68-4806-b7db-fe764ec0fd7b",
+								"exec": [
+									"pm.environment.set(\"header_server\", pm.response.headers.get('server'));\r",
+									"pm.test(\"Check for Access Control\", function () {\r",
+									"    pm.response.to.have.header('Access-Control-Allow-Origin');\r",
+									"});\r",
+									"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {\r",
+									"    console.log(response.json());\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"last_name\");\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"last_name\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{reqresurl}}/api/users?page=2",
+							"host": [
+								"{{reqresurl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						},
+						"description": "https://reqres.in/api/users?page=2"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "/Createuser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5726f62-17d1-4e38-ba77-9f5ccf813d40",
+								"exec": [
+									"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {\r",
+									"    console.log(response.json());\r",
+									"});\r",
+									"pm.test(\"check if id is present\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"});\r",
+									"pm.test(\"checking if the response time is below 400\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"pm.test(\"Check for Access Control\", function () {\r",
+									"    pm.response.to.have.header('Access-Control-Allow-Origin');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Body:{\r\n\t\"name\": \"morpheus\",\r\n\t\"job\": \"leader\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{reqresurl}}/api/users",
+							"host": [
+								"{{reqresurl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "https://reqres.in/api/users"
+					},
+					"response": []
+				},
+				{
+					"name": "/userlogin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "41ddcdcb-ea45-4108-b375-dcaadc266e14",
+								"exec": [
+									"pm.test(\"Check for Access Control\", function () {\r",
+									"    pm.response.to.have.header('Access-Control-Allow-Origin');\r",
+									"});\r",
+									"pm.environment.set(\"header_CF-Cache-Status\", pm.response.headers.get('CF-Cache-Status'));\r",
+									"\r",
+									"pm.test(\"check if email is present\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"email\");\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"email\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Body:{\r\n\t\"email\":\"eve.holt@reqres.in\",\r\n\t\"password\":\"cityslicka\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{reqresurl}}/api/login",
+							"host": [
+								"{{reqresurl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "https://reqres.in/api/login"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Put Folder",
+			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Delete Folder",
+			"item": [
+				{
+					"name": "/deleteuser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "77f68d50-1adf-4fbe-9da5-28d4890777b7",
+								"exec": [
+									"pm.test(\"Checf if the Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.variables.get(\"header_Etag\");\r",
+									"pm.globals.set(\"reqresurl\", pm.response.responseTime.get);\r",
+									"pm.test(\"Check for Access Control\", function () {\r",
+									"    pm.response.to.have.header('Access-Control-Allow-Origin');\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{reqresurl}}/api/users/2",
+							"host": [
+								"{{reqresurl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						},
+						"description": "https://reqres.in/api/users/2"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
